@@ -1,0 +1,193 @@
+===========RV1108 Linux SDK Release Note===========
+
+[rv1108_linux_release_v2.3.6_20201028.xml 更新日志]
+
+1. Loader更新:
+	(1) 新增W25Q128JVSIM Flash支持;
+	(2) 新增TC58CVG1S3HRAIJ Flash支持;
+
+2、Framework更新：
+	(1) 替换新的verndor storage库；
+	(2) Camerahal支持RGB24格式；
+
+3、Kernel更新：
+	(1) 解决CNVD-C-2020-193874漏洞；
+	(2) 解决CNVD-C-2020-224264漏洞；
+	(3) 新增新Flash支持；
+
+4、App更新：
+	(1) 支持3DNR参数设置；
+
+[rv1108_linux_release_v2.3.4_20200501.xml 更新日志]
+1. App更新：
+	(1) 支持rkffplay播放视频文件；
+	(2) 新增CVR Demo应用；
+	(3) device_manager支持SD卡管理；
+	(4) 优化face_service；
+	(5) 重构lock应用；
+
+2. Buildroot更新：
+	(1) GCC版本升级到7.5；
+	(2) 使用andorid-tools中的adbd，移除liglog、ligcutils、adb；
+	(3) 新增rkwifibt相关软件包；
+	(4) 支持sanitizer工具，方便排查应用问题；
+
+3. Framework更新：
+	(1) 新增摄像头动态切换接口；
+	(2) 新增摄像头分辨率动态切换接口；
+	(3) 新增RTSP功能；
+	(4) 新增音频播放接口；
+	(5) 新增SD卡格式化接口；
+	(6) 新增获取电池电量、充电状态接口；
+
+4. Kernel更新：
+	(1) UART RX默认配置为上拉；
+	(2) DSP驱动支持重新加载DSP固件；
+	(3) 解决DSP early mbox释放irq卡死问题；
+
+5. Loader更新：
+	(1) 使能ARM Cache；
+	(2) 支持Kernel校验；
+
+[rv1108_linux_release_v2.3.2_20191120.xml 更新日志]
+1. Buildroot更新：
+        (1) 采用与其他平台一致的linux-rga包，弃用librkrga包；
+        (2) rkcamera支持配置文件重新加载，支持摄像头切换；
+        (3) 优化OV5695摄像头效果；
+        (4) process_units增加编码录像功能PU；
+        (5) 支持基于eudev的SD卡自动挂载；
+        (6) 支持Face AE功能；
+
+2. Kernel更新：
+        (1) 升级RGA2驱动；
+        (2) 解决一些Camera概率性启动失败问题；
+        (3) 解决RK1608概率性死机问题；
+
+3. Loader更新：
+        (1) 标准化loader加载运行地址，目前运行在48M；
+
+4. Docs更新：
+        (1) 增加英文版开发指南；
+
+[rv1108_linux_release_v2.3.0_20191009.xml 更新日志]
+
+1. 编译环境更新：
+	(1) 移除rvmk编译规则，导入所有软件包到Buildroot;
+	(2) 添加更多旧编译环境命令，编译规则尽可能与老版本保持一致;
+
+2. Buildroot更新：
+	(1) 添加rkcamera模块来初始化camera;
+	(2) 添加process_units模块，用来存放app共享的处理单元;
+	(3) face_service代码优化，体验优化，bug修复;
+	(4) camerahal升级IQ bin到v2.0.c.0;
+	(5) 添加easymedia 多媒体封装库;
+	(6) 添加device_manager服务;
+	(7) 更新updater，支持远程/本地方式升级;
+	(8) 更新pcba，支持客户自定义配置测试向量;
+
+3. Kernel更新：
+	(1) DSP CLK 提到480M;
+	(2) ramdisk 采用无压缩打包，提升开机速度可优化空间;
+	(3) RKFlash 添加XMC系列颗粒支持;
+	(4) 更新ftl算法，添加discard机制，解决flash坏快问题，支持OTA IDBlock;
+	(5) 修复perf工具编译问题;
+
+4. Loader更新：
+	(1) 更新ftl算法，version: 5.0.50 20190215;
+
+5. 快速开机更新：
+	(1) 加入算法模型内核预加载机;
+	(2) 在Loader预加载RK1608固件;
+	(3) RK1608 IR提前输出;
+
+6. 算法更新：
+	(1) 2D活体检测算法更新, v1.0.1_20191015;
+	(2) 3D活体检测算法更新，v1.0.2_20191012;
+	(3) 在V2.3 SDK新增3DNR和畸变矫正算法支持;
+
+7. Tool更新
+	(1) 更新PCBATool_Setup_V1.0.9_0904_1108.exe;
+
+8. Docs更新
+	(1) 添加更多的文档说明支持;
+
+
+[rv1108_linux_release_v2.2.1_20190912.xml 更新日志]
+
+    1.修复人脸识别时会卡显示的问题;
+
+
+[rv1108_linux_release_v2.2_20190705.xml 更新日志]
+
+1、支持Vendor Storage；
+2、更进一步优化基于eMMC方案的开机速度；
+3、支持3D结构光模组；
+4、支持基于RK1608的HDR算法；
+5、Camerahal升级到V2.0.c.0；
+6、支持WiFi远程唤醒；
+7、增加视频解码、播放接口；
+8、支持RV1108 Lock EVB V11板子；
+9、解决at_server概率性解析命令失败的问题；
+10、文档更新，同时删除不必要的文档；
+11、rv1108ddr.bin升级到V1.07版本；
+
+12、算法相关更新：    
+    (1) 人脸识别更新，当前版本：20190625；
+	(2) 增加3D活体检测算法库，版本号：20190625；
+	(3)	人脸检测算法更新，当前版本：V7.1.3, 20190528；
+	(4) 增加Windows端算法授权命令行工具；
+    (5) 算法授权方式更新，将License写入vendor_storage，此方式不会因烧写固件而擦除；
+
+13、face_service相关更新：
+	(1) 加入3D活体检测；
+	(2) 注册人脸时，可以注册多张不同角度的人脸特征；
+	   
+14、内核相关更新：
+	(1) 解决APP频繁开关时，CIF报DMAFIFO中断错误；
+	(2) 解决Sensor寄存器列表过多时出现内核冲数据的问题；
+	(3) DSP驱动中外部Memory的大小可以通过dts配置；
+	(4) 减少sram stack大小，解决sram越界的问题；
+
+
+[rv1108_linux_release_v2.1_20190329.xml 更新日志]
+
+app更新:
+1、添加at_server
+2、添加hello
+3、添加pcba_test
+4、添加system_manager
+5、添加updater
+6、优化lock app与face server间的耦合，加强ipc间通讯。
+
+doc更新:
+1、更新《RV1108_Linux_SDK软件开发指南_V2.1_20190329.pdf》;
+2、添加rv1108/index.html文档索引
+
+common更新
+1、添加更多板级资源文件
+
+config更新:
+1、添加更多可配置选项
+
+exteranl更新:
+1、添加bsdiff
+2、添加bzip2
+3、添加libcurl
+4、添加libogg
+5、添加libvorbis
+6、添加live555
+
+frameworks更新:
+1、添加framework/hal
+2、添加framework/librkuvc
+3、添加framework/messenger
+4、添加framework/settings
+
+Kernel更新:
+1、更新bcmdhd驱动
+2、添加网络相关配置
+3、默认开启adb功能所依赖的配置
+
+
+
+
